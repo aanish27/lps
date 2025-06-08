@@ -1,129 +1,157 @@
-<section class='py-16 dark:bg-gray-800 text-center'>
+---
+import fertiilizer from '../assets/fertilizer.png';
+
+const features = [
+  {
+    title: 'fertilizer',
+    description:
+      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+    pic: fertiilizer,
+  },
+  {
+    title: 'fertilizer',
+    description:
+      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+    pic: fertiilizer,
+  },
+  {
+    title: 'fertilizer',
+    description:
+      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+    pic: fertiilizer,
+  },
+  {
+    title: 'fertilizer',
+    description:
+      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+    pic: fertiilizer,
+  },
+  {
+    title: 'fertilizer',
+    description:
+      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+    pic: fertiilizer,
+  },
+
+  {
+    title: 'fertilizer',
+    description:
+      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+    pic: fertiilizer,
+  },
+];
+---
+
+<section id='features' class='section border-2'>
   <div class='container-custom'>
-    <div class='max-w-4xl mx-auto'>
-      <h2 class='text-3xl font-bold text-gray-900 dark:text-white mb-8'>
-        Why Choose Us?
-      </h2>
+    <div class='text-center max-w-3xl mx-auto mb-16'>
+      <h2 class='mb-5 text-gray-900 dark:text-white'>Our Customer Segments</h2>
+    </div>
 
-      <div class='grid md:grid-cols-3 gap-8 mb-16'>
-        <div class='card p-6 border border-gray-200 dark:border-gray-700'>
-          <div class='flex items-center mb-4'>
-            <div
-              class='rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4'
-            >
-              <svg
-                class='w-6 h-6 text-primary-600 dark:text-primary-400'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'></path>
-              </svg>
+    <div class='grid md:grid-cols-3 lg:grid-cols-6 gap-10'>
+      {
+        features.map((feature, index) => (
+          <div class='feature-card group perspective h-[200px]'>
+            <div class='relative h-full  transform-gpu transition-all duration-700 preserve-3d hover:rotate-y-180 cursor-pointer touch-action-card'>
+              <div class='absolute inset-0 backface-hidden'>
+                <div class=' p-6 md:p-8 h-full flex flex-col items-center justify-center text-center'>
+                  <img src={feature.pic.src} alt='' />
+                  <h3 class=' capitalize text-xl font-semibold mb-3 text-gray-900 dark:text-white'>
+                    {feature.title}
+                  </h3>
+                </div>
+              </div>
+              <div class='absolute inset-0 backface-hidden rotate-y-180'>
+                <div class='card p-6 md:p-2 h-full bg-white dark:bg-primary-800 text-white flex flex-col items-center justify-center text-center'>
+                  <p class='mb-4 text-sm font-semibold text-black'>
+                    Our 3D transformations use CSS perspective and transform
+                    properties to create immersive experiences.
+                  </p>
+                </div>
+              </div>
             </div>
-            <h3 class='text-xl font-semibold text-gray-900 dark:text-white'>
-              Flexible Work Environment
-            </h3>
           </div>
-          <p class='text-gray-600 dark:text-gray-300'>
-            Work from anywhere in the world. We believe in results, not hours
-            spent at a desk.
-          </p>
-        </div>
-
-        <div class='card p-6 border border-gray-200 dark:border-gray-700'>
-          <div class='flex items-center mb-4'>
-            <div
-              class='rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4'
-            >
-              <svg
-                class='w-6 h-6 text-primary-600 dark:text-primary-400'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M13 10V3L4 14h7v7l9-11h-7z'></path>
-              </svg>
-            </div>
-            <h3 class='text-xl font-semibold text-gray-900 dark:text-white'>
-              Cutting-Edge Technology
-            </h3>
-          </div>
-          <p class='text-gray-600 dark:text-gray-300'>
-            Work with the latest technologies and tools to solve challenging
-            problems.
-          </p>
-        </div>
-
-        <div class='card p-6 border border-gray-200 dark:border-gray-700'>
-          <div class='flex items-center mb-4'>
-            <div
-              class='rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4'
-            >
-              <svg
-                class='w-6 h-6 text-primary-600 dark:text-primary-400'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z'
-                ></path>
-              </svg>
-            </div>
-            <h3 class='text-xl font-semibold text-gray-900 dark:text-white'>
-              Diverse & Inclusive Team
-            </h3>
-          </div>
-          <p class='text-gray-600 dark:text-gray-300'>
-            Join a global team with diverse backgrounds, perspectives, and
-            experiences.
-          </p>
-        </div>
-
-        <div class='card p-6 border border-gray-200 dark:border-gray-700'>
-          <div class='flex items-center mb-4'>
-            <div
-              class='rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4'
-            >
-              <svg
-                class='w-6 h-6 text-primary-600 dark:text-primary-400'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
-                ></path>
-              </svg>
-            </div>
-            <h3 class='text-xl font-semibold text-gray-900 dark:text-white'>
-              Competitive Benefits
-            </h3>
-          </div>
-          <p class='text-gray-600 dark:text-gray-300'>
-            Enjoy competitive salary, health benefits, stock options, and
-            professional development opportunities.
-          </p>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
+<style>
+  /* 3D Card Transformations */
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Touch device support for 3D cards */
+  @media (hover: none) {
+    .touch-action-card {
+      transition: none;
+    }
+
+    .touch-action-card:active {
+      transform: rotateY(180deg);
+    }
+  }
+
+  @media (hover: none) {
+    .touch-action-card {
+      transition: transform 0.5s ease;
+    }
+  }
+</style>
+<script>
+  // Store references to event listeners for cleanup
+  const cleanupFunctions: Array<() => void> = [];
+
+  // Add touch support for 3D cards
+  function initializeTouchCards() {
+    const cards = document.querySelectorAll('.feature-card.perspective');
+
+    cards.forEach((card) => {
+      const cardInner = card.querySelector('.preserve-3d');
+
+      if (cardInner) {
+        // 使用点击事件而不是touchstart，这样更可靠
+        const handleClick = () => {
+          if (window.matchMedia('(hover: none)').matches) {
+            cardInner.classList.toggle('rotate-y-180');
+          }
+        };
+
+        cardInner.addEventListener('click', handleClick);
+
+        // Add cleanup function
+        cleanupFunctions.push(() => {
+          if (cardInner) {
+            cardInner.removeEventListener('click', handleClick);
+          }
+        });
+      }
+    });
+  }
+
+  // Cleanup when page is unloaded or before navigation
+  document.addEventListener('astro:before-swap', () => {
+    // Execute all cleanup functions
+    cleanupFunctions.forEach((cleanup) => cleanup());
+    // Clear the array
+    cleanupFunctions.length = 0;
+  });
+
+  // Also clean up on window unload as a fallback
+  window.addEventListener('unload', () => {
+    cleanupFunctions.forEach((cleanup) => cleanup());
+  });
+</script>
