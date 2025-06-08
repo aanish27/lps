@@ -37,8 +37,8 @@ import pic7 from '../assets/30.jpg';
             facility in Dambulla.
           </p>
         </div>
-        <div class='rounded-lg overflow-hidden '> 
-          <img src={pic7.src} alt='30 years' class='w-full h-auto ' />
+        <div class='rounded-lg overflow-hidden'>
+          <img src={pic7.src} alt='30 years' class='w-full h-auto' />
         </div>
       </div>
 
@@ -59,7 +59,9 @@ import pic7 from '../assets/30.jpg';
         </div>
 
         <div class='grid md:grid-cols-2 gap-8'>
-          <div class='card p-6 border border-gray-200 dark:border-gray-700'>
+          <div
+            class='particles-container relative card p-6 border border-gray-200 dark:border-gray-700'
+          >
             <div
               class='rounded-full bg-red-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4'
             >
@@ -88,9 +90,12 @@ import pic7 from '../assets/30.jpg';
               about our processes, pricing, and policies, and we always strive
               to do what's right for our customers.
             </p>
+            <div class='particles absolute inset-0'></div>
           </div>
 
-          <div class='card p-6 border border-gray-200 dark:border-gray-700'>
+          <div
+            class='particles-container relative card p-6 border border-gray-200 dark:border-gray-700 overflow-hidden'
+          >
             <div
               class='rounded-full bg-blue-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4'
             >
@@ -113,11 +118,13 @@ import pic7 from '../assets/30.jpg';
             >
               Our Vision
             </h3>
+
             <p class='text-gray-600 dark:text-gray-300'>
               We're constantly pushing the boundaries of what's possible,
               seeking new ways to solve complex problems and deliver exceptional
               value to our customers.
             </p>
+            <div class='particles absolute inset-0'></div>
           </div>
         </div>
       </div>
@@ -217,3 +224,126 @@ import pic7 from '../assets/30.jpg';
     </div>
   </div>
 </section>
+<style>
+  .particles-container:hover .particles,
+  .particles-container:active .particles {
+    opacity: 1;
+  }
+
+  .particles {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+</style>
+<script>
+  const cleanupFunctions: Array<() => void> = [];
+  // Particle Animation
+  function initializeParticles() {
+    const particlesContainer = document.querySelectorAll(
+      '.particles-container'
+    );
+    const particles = document.querySelectorAll('.particles');
+
+    if (particlesContainer && particles) {
+      particlesContainer.forEach((particlesContainer, index) => {
+        const particlesElement = particles[index];
+        const createParticles = () => {
+          const containerRect = particlesContainer.getBoundingClientRect();
+
+          // Reduce particle count on mobile
+          const particleCount = window.innerWidth < 768 ? 15 : 30;
+
+          for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            const size = Math.random() * 6 + 2;
+            const x = Math.random() * containerRect.width;
+            const y = Math.random() * containerRect.height;
+            const duration = Math.random() * 2 + 1;
+            const delay = Math.random() * 0.5;
+
+            particle.style.cssText = `
+              position: absolute;
+              width: ${size}px;
+              height: ${size}px;
+              background-color: ${index == 0 ? '#FF0000' : '#0F52BA'} ;
+              border-radius: 50%;
+              left: ${x}px;
+              top: ${y}px;
+              opacity: 0;
+              animation: float ${duration}s ease-in-out ${delay}s infinite alternate;
+            `;
+
+            particlesElement.appendChild(particle);
+          }
+        };
+
+        createParticles();
+
+        // Add touch support
+        const handleTouch = () => {
+          (particlesContainer as HTMLElement).classList.add('active');
+          setTimeout(() => {
+            (particlesContainer as HTMLElement).classList.remove('active');
+          }, 1000);
+        };
+
+        (particlesContainer as HTMLElement).addEventListener(
+          'touchstart',
+          handleTouch
+        );
+
+        // Add animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes float {
+            0% {
+              transform: translateY(0) translateX(0);
+              opacity: 0;
+            }
+            50% {
+              opacity: 0.8;
+            }
+            100% {
+              transform: translateY(-20px) translateX(10px);
+              opacity: 0;
+            }
+          }
+
+          .particles-container.active .particles {
+            opacity: 1;
+          }
+          `;
+        document.head.appendChild(style);
+
+        // Add cleanup function
+        cleanupFunctions.push(() => {
+          if (style && document.head.contains(style)) {
+            document.head.removeChild(style);
+          }
+
+          if (particlesContainer) {
+            (particlesContainer as HTMLElement).removeEventListener(
+              'touchstart',
+              handleTouch
+            );
+          }
+        });
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initializeParticles);
+  document.addEventListener('astro:before-swap', () => {
+    // Execute all cleanup functions
+    cleanupFunctions.forEach((cleanup) => cleanup());
+    // Clear the array
+    cleanupFunctions.length = 0;
+  });
+
+  // Also clean up on window unload as a fallback
+  window.addEventListener('unload', () => {
+    cleanupFunctions.forEach((cleanup) => cleanup());
+  });
+</script>
