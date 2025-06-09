@@ -1,0 +1,388 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import pic2 from '../../assets/chips-bag.jpg';
+import pic5 from '../../assets/still-life-hanging-bag.jpg';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'leno_bags' } },
+    { params: { slug: 'polypropylene_woven_rice_bags' } },
+    { params: { slug: 'pp_mats' } },
+    { params: { slug: 'strapping_belts' } },
+    { params: { slug: 'multi_filament_yarn_and_thread' } },
+    { params: { slug: 'non_woven_bags' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+// This would normally come from a CMS or database
+const posts = {
+  polypropylene_woven_rice_bags: {
+    title: 'Polypropylene Woven Rice Bags',
+    description: '',
+    img1: '',
+    img2: '',
+    h1: '',
+    p1: '',
+    h2: '',
+    p2: '',
+  },
+  pp_mats: {
+    title: 'PP Mats',
+    description: 'durable and vibrant mats for home & commercial use',
+    img1: '',
+    img2: '',
+    h1: '',
+    p1: '',
+    h2: '',
+    p2: '',
+  },
+  strapping_belts: {
+    title: 'Strapping Belts',
+    description: 'for industrial and heavy-duty packaging',
+    img1: '',
+    img2: '',
+    h1: '',
+    p1: '',
+    h2: '',
+    p2: '',
+  },
+  multi_filament_yarn_and_thread: {
+    title: 'Multi-Filament Yarn & Thread',
+    description: '',
+    img1: '',
+    img2: '',
+    h1: '',
+    p1: '',
+    h2: '',
+    p2: '',
+  },
+  non_woven_bags: {
+    title: 'Non-Woven Bags',
+    description: 'sustainable and reusable',
+    img1: '',
+    img2: '',
+    h1: '',
+    p1: '',
+    h2: '',
+    p2: '',
+  },
+  leno_bags: {
+    title: 'Leno Bags',
+    description: 'ideal for fruits, vegetables & firewood',
+    img1: pic2,
+    img2: pic5,
+    h1: 'Durable, Customisable Bags Built for Performance',
+    p1: 'Our standard bag specifications include a safe working load of up to 1,200kg / 2,600lbs, a 5:1 safety factor, UV-stabilised fabric, and reinforced stitching at the handles for added durability. We offer both natural uncoated and coated fabric options. For specialised applications, 6:1 safety factor and other custom specifications are available upon request. Our range of bag designs includes baffle, corner loop (4-panel), and cross-corner handle FIBCs, with customisable features such as extra loops and loading belts. Standard handle belt colours are white, beige, blue, and green, with other colours and types available as needed.',
+    h2: 'Versatile Construction and Custom Branding',
+    p2: 'We provide a wide selection of top and bottom construction options to meet your operational needs. Top designs include open, flat top, skirt/duffle top, closing rope, and fillingspout, while bottom designs include flat bottom, discharging spout, spout with safety valve, spout with cover, and spout with closing flap. All construction features can be tailored upon request. To support your branding, we offer high-quality flexographic printing in up to 4 colours, with our in-house design team ready to assist with any design customisation.',
+  },
+};
+
+const post = posts[slug];
+if (!post) return Astro.redirect('/404');
+---
+
+<Layout title={`${post.title} - SaaSify Blog`} description={post.title}>
+  <Header />
+  <main>
+    <HeroSection
+      title='Product - '
+      highlightText={post.title}
+      description={post.description}
+    />
+
+    <section class='py-16 bg-white dark:bg-gray-800'>
+      <div class='container-custom'>
+        <!-- Case Study 1 -->
+        <div class='mb-24'>
+          <div class='grid md:grid-cols-2 gap-12 items-center mb-12'>
+            <div>
+              <!-- <span
+                class='inline-block px-4 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900 text-secondary-600 dark:text-secondary-300 font-medium text-sm mb-4'
+              >
+                E-commerce
+              </span> -->
+              <h2 class='text-3xl font-bold text-gray-900 dark:text-white mb-4'>
+                {post.h1}
+              </h2>
+              <p class='text-gray-600 dark:text-gray-300 mb-6'>{post.p1}</p>
+              <div class='flex flex-wrap gap-4 mb-6'>
+                <div class='flex items-center'>
+                  <svg
+                    class='w-5 h-5 text-primary-600 dark:text-primary-400 mr-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M5 13l4 4L19 7'></path>
+                  </svg>
+                  <span class='text-gray-700 dark:text-gray-300'
+                    >45% Conversion Increase</span
+                  >
+                </div>
+                <div class='flex items-center'>
+                  <svg
+                    class='w-5 h-5 text-primary-600 dark:text-primary-400 mr-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M5 13l4 4L19 7'></path>
+                  </svg>
+                  <span class='text-gray-700 dark:text-gray-300'
+                    >30% Cart Abandonment Reduction</span
+                  >
+                </div>
+                <div class='flex items-center'>
+                  <svg
+                    class='w-5 h-5 text-primary-600 dark:text-primary-400 mr-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M5 13l4 4L19 7'></path>
+                  </svg>
+                  <span class='text-gray-700 dark:text-gray-300'>2.5x ROI</span>
+                </div>
+              </div>
+              <!-- <a href='#' class='btn-primary'>Read Full Case Study</a> -->
+            </div>
+            <div class='rounded-lg overflow-hidden shadow-xl'>
+              <img
+                src={post.img1.src}
+                alt='ShopWave Dashboard'
+                class='w-full h-auto'
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class='mb-24'>
+          <div class='grid md:grid-cols-2 gap-12 items-center mb-12'>
+            <div
+              class='order-2 md:order-1 rounded-lg overflow-hidden shadow-xl'
+            >
+              <img
+                src={post.img2.src}
+                alt='TechNova Team'
+                class='w-full h-auto'
+              />
+            </div>
+            <div class='order-1 md:order-2'>
+              <!-- <span
+                class='inline-block px-4 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900 text-secondary-600 dark:text-secondary-300 font-medium text-sm mb-4'
+              >
+                SaaS
+              </span> -->
+              <h2 class='text-3xl font-bold text-gray-900 dark:text-white mb-4'>
+                {post.h2}
+              </h2>
+              <p class='text-gray-600 dark:text-gray-300 mb-6'>{post.p2}</p>
+              <div class='flex flex-wrap gap-4 mb-6'>
+                <div class='flex items-center'>
+                  <svg
+                    class='w-5 h-5 text-primary-600 dark:text-primary-400 mr-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M5 13l4 4L19 7'></path>
+                  </svg>
+                  <span class='text-gray-700 dark:text-gray-300'
+                    >10x User Growth</span
+                  >
+                </div>
+                <div class='flex items-center'>
+                  <svg
+                    class='w-5 h-5 text-primary-600 dark:text-primary-400 mr-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M5 13l4 4L19 7'></path>
+                  </svg>
+                  <span class='text-gray-700 dark:text-gray-300'
+                    >40% Cost Reduction</span
+                  >
+                </div>
+                <div class='flex items-center'>
+                  <svg
+                    class='w-5 h-5 text-primary-600 dark:text-primary-400 mr-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M5 13l4 4L19 7'></path>
+                  </svg>
+                  <span class='text-gray-700 dark:text-gray-300'
+                    >99.9% Uptime</span
+                  >
+                </div>
+              </div>
+              <!-- <a href='#' class='btn-primary'>Read Full Case Study</a> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Descriptions - BROTHER -->
+        <!-- <hr class='border-2 mb-6' /> -->
+        <!-- <div class='space-y-8 mb-8 grid grid-cols-2 gap-12'>
+          <div class='flex justify-center flex-col items-center md:flex-row'>
+            <div class='flex justify-center items-center flex-col mr-4'>
+              <svg
+                class='w-30 h-30 text-green-800'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                ></path>
+              </svg>
+              <div class='font-semibold text-xl'>FABRIC</div>
+            </div>
+            <div
+              class='dark:text-gray-300 font-light text-md text-center md:text-left'
+            >
+              Our comprehensive API allows you to build custom integrations and
+              extend Sassify's functionality to meet your specific needs. With
+              detailed documentation and developer support, you can create
+              seamless connections between Sassify and your internal tools.
+            </div>
+          </div>
+
+          <div class='flex justify-center flex-col items-center md:flex-row'>
+            <div class='flex justify-center items-center flex-col mr-3'>
+              <svg
+                class='w-30 h-30 text-green-800'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                ></path>
+              </svg>
+              <div class='font-semibold text-xl'>FABRIC</div>
+            </div>
+            <div
+              class='dark:text-gray-300 font-light text-md text-center md:text-left'
+            >
+              Our comprehensive API allows you to build custom integrations and
+              extend Sassify's functionality to meet your specific needs. With
+              detailed documentation and developer support, you can create
+              seamless connections between Sassify and your internal tools.
+            </div>
+          </div>
+
+          <div class='flex justify-center flex-col items-center md:flex-row'>
+            <div class='flex justify-center items-center flex-col mr-3'>
+              <svg
+                class='w-30 h-30 text-green-800'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                ></path>
+              </svg>
+              <div class='font-semibold text-xl'>FABRIC</div>
+            </div>
+            <div
+              class='dark:text-gray-300 font-light text-md text-center md:text-left'
+            >
+              Our comprehensive API allows you to build custom integrations and
+              extend Sassify's functionality to meet your specific needs. With
+              detailed documentation and developer support, you can create
+              seamless connections between Sassify and your internal tools.
+            </div>
+          </div>
+
+          <div class='flex justify-center flex-col items-center md:flex-row'>
+            <div class='flex justify-center items-center flex-col mr-3'>
+              <svg
+                class='w-30 h-30 text-green-800'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                ></path>
+              </svg>
+              <div class='font-semibold text-xl uppercase text-center'>
+                Surface Appearance
+              </div>
+            </div>
+            <div
+              class='dark:text-gray-300 font-light text-md text-center md:text-left'
+            >
+              Our comprehensive API allows you to build custom integrations and
+              extend Sassify's functionality to meet your specific needs. With
+              detailed documentation and developer support, you can create
+              seamless connections between Sassify and your internal tools.
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
