@@ -10,7 +10,7 @@ import retail from '../assets/retail.png';
 import petFeeder from '../assets/pet-feeder.png';
 import wheatFlour from '../assets/wheat-flour.png';
 
-const features = [
+const segments = [
   { title: 'rice', pic: rice },
   { title: 'fertilizer', pic: fertilizer },
   { title: 'feed', pic: feed },
@@ -24,7 +24,10 @@ const features = [
 ];
 ---
 
-<section id='features' class='section relative dark:bg-gray-800/50 border-2'>
+<section
+  id='customer-segments'
+  class='section relative dark:bg-gray-800/50 '
+>
   <div class='absolute inset-0 z-0 opacity-30'>
     <div class='absolute inset-0 bg-grid-pattern'></div>
   </div>
@@ -34,14 +37,14 @@ const features = [
     </div>
     <div class='grid md:grid-cols-2 lg:grid-cols-5 gap-25 lg:gap-10'>
       {
-        features.map((feature, index) => (
+        segments.map((segment) => (
           <div class='feature-card group perspective h-60 my-10 md:my-0'>
             <div class='relative h-full  cursor-pointer '>
               <div class='absolute inset-0 backface-hidden'>
                 <div class=' p-6 md:p-8 h-full flex flex-col items-center justify-center text-center'>
-                  <img src={feature.pic.src} alt='' />
+                  <img src={segment.pic.src} alt='' />
                   <h3 class=' capitalize text-xl font-semibold mb-3 text-gray-900 dark:text-white'>
-                    {feature.title}
+                    {segment.title}
                   </h3>
                 </div>
               </div>

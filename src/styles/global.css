@@ -169,6 +169,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Animations */
 .fade-in {
   @apply animate-fade-in;

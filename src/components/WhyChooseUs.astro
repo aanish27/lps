@@ -1,7 +1,7 @@
 ---
 import fertiilizer from '../assets/fertilizer.png';
 
-const features = [
+const reasons = [
   {
     title: 'fertilizer',
     description:
@@ -42,7 +42,7 @@ const features = [
 ];
 ---
 
-<section id='features' class='section border-2'>
+<section id='choose-us' class='section bg-blue-50'>
   <div class='container-custom'>
     <div class='text-center max-w-3xl mx-auto mb-16'>
       <h2 class='mb-5 text-gray-900 dark:text-white'>Why Choose Us</h2>
@@ -50,14 +50,14 @@ const features = [
 
     <div class='grid md:grid-cols-3 lg:grid-cols-6 gap-20 md:gap-10'>
       {
-        features.map((feature, index) => (
+        reasons.map((reason, index) => (
           <div class='feature-card group perspective h-50 my-15 md:my-0'>
             <div class='relative h-full  transform-gpu transition-all duration-700 preserve-3d hover:rotate-y-180 cursor-pointer touch-action-card'>
               <div class='absolute inset-0 backface-hidden'>
                 <div class=' p-6 md:p-8 h-full flex flex-col items-center justify-center text-center'>
-                  <img src={feature.pic.src} alt='' />
+                  <img src={reason.pic.src} alt='' />
                   <h3 class=' capitalize text-xl font-semibold mb-3 text-gray-900 dark:text-white'>
-                    {feature.title}
+                    {reason.title}
                   </h3>
                 </div>
               </div>
