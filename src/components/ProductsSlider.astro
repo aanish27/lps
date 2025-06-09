@@ -1,0 +1,134 @@
+---
+import pic1 from '../assets/1.jpg';
+import pic2 from '../assets/chips-bag.jpg';
+import pic3 from '../assets/carpets-market-marrakech.jpg';
+import pic4 from '../assets/flat-lay-monochrome-paper-pieces.jpg';
+import pic5 from '../assets/still-life-hanging-bag.jpg';
+import pic6 from '../assets/spools-multi-colored-thread-textile-material-generated-by-ai.jpg';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+const products = [
+  {
+    title: 'Polypropylene Woven Rice Bags',
+    pic: pic1,
+    description:
+      ' Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity',
+    link: 'polypropylene_woven_rice_bags',
+  },
+  {
+    title: 'PP Mats',
+    pic: pic2,
+    description:
+      ' Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity',
+    link: 'pp_mats',
+  },
+  {
+    title: 'Strapping Belts',
+    pic: pic5,
+    description:
+      ' Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity',
+    link: 'strapping_belts',
+  },
+  {
+    title: 'Multi-Filament Yarn & Thread',
+    pic: pic4,
+    description:
+      ' Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity',
+    link: 'multi_filament_yarn_and_thread',
+  },
+  {
+    title: 'Non-Woven Bags',
+    pic: pic5,
+    description:
+      ' Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity',
+    link: 'non_woven_bags',
+  },
+  {
+    title: 'Lono Bags',
+    pic: pic2,
+    description:
+      ' Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity',
+    link: 'leno_bags',
+  },
+];
+---
+
+<div class='swiper'>
+  <!-- Additional required wrapper -->
+  <div class='swiper-wrapper mb-20'>
+    <!-- Slides -->
+    {
+      products.map((feature, index) => (
+        <div class='swiper-slide'>
+          <div class='card border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center'>
+            <img
+              src={feature.pic.src}
+              alt='Google Workspace'
+              class='w-full h-auto mb-4'
+            />
+            <h3 class='text-xl font-semibold text-gray-900 dark:text-white mb-2 capitalize'>
+              {feature.title}
+            </h3>
+            <p class='p-6 text-gray-600 dark:text-gray-300 mb-4'>
+              {feature.description}
+            </p>
+            <a
+              href={`products/${feature.link}`}
+              class='mb-3 p-2 text-blue-500 font-semibold'
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <!-- If we need pagination -->
+  <div class='swiper-pagination'></div>
+
+  <!-- If we need navigation buttons -->
+  <!-- <div class='swiper-button-prev '></div>
+    <div class='swiper-button-next'></div> -->
+
+  <!-- If we need scrollbar -->
+  <!-- <div class='swiper-scrollbar'></div> -->
+</div>
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+  
+  document.addEventListener('astro:page-load', () => {
+    const swiper = new Swiper('.swiper', {
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+      },
+      modules: [Navigation, Pagination, Autoplay],
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      },
+    });
+  });
+</script>
