@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import '../styles/transitions.css';
 import { ViewTransitions } from 'astro:transitions';
-
+import logo from '../assets/logo.jpg';
 export interface Props {
   title: string;
   description?: string;
@@ -10,19 +10,16 @@ export interface Props {
 
 const {
   title,
-  description = 'Modern SaaS landing page template with responsive design and modular sections.',
+  description = 'Delivering top-quality polypropylene solutions with cutting-edge technology and a commitment to sustainability, trusted by industries across Sri Lanka.',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html
-  lang='en'
-  :class="{ 'dark': darkMode }"
->
+<html lang='en' :class="{ 'dark': darkMode }">
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='icon' type='image' href={logo.src} />
     <meta name='generator' content={Astro.generator} />
     <meta name='description' content={description} />
     <title>{title}</title>
@@ -73,8 +70,6 @@ const {
           icon.classList.remove('hidden'); // remove the class
         }
       });
-
-
 
       // Handle page transitions
       document.addEventListener('astro:page-load', () => {
