@@ -5,7 +5,10 @@ import pic7 from '../assets/30.jpg';
 <section id='about-us' class='section bg-gray-50 dark:bg-gray-800/50 py-0'>
   <div class='py-16 bg-white dark:bg-gray-800'>
     <div class='container-custom'>
-      <div class='grid md:grid-cols-2 gap-12 items-center mb-24'>
+      <div
+        class='grid md:grid-cols-2 gap-12 items-center mb-24'
+        id='about-grid'
+      >
         <div>
           <span
             class='inline-block px-4 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900 text-secondary-600 dark:text-secondary-300 font-medium text-sm mb-4'
@@ -347,5 +350,68 @@ import pic7 from '../assets/30.jpg';
   // Also clean up on window unload as a fallback
   window.addEventListener('unload', () => {
     cleanupFunctions.forEach((cleanup) => cleanup());
+  });
+</script>
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.from('#about-grid > div:first-child', {
+      scrollTrigger: {
+        trigger: '#about-grid',
+        start: 'top 80%',
+      },
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+
+    gsap.from('#about-grid > div:last-child img', {
+      scrollTrigger: {
+        trigger: '#about-grid',
+        start: 'top 80%',
+      },
+      x: 50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+      delay: 0.2,
+    });
+
+    // Animate Mission + Vision Cards
+    gsap.utils.toArray('#about-us .particles-container').forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        delay: i * 0.2,
+      });
+    });
+
+    // Animate Leadership Team Members
+    gsap.utils
+      .toArray('#about-us .md\\:grid-cols-3 > div')
+      .forEach((member, i) => {
+        gsap.from(member, {
+          scrollTrigger: {
+            trigger: member,
+            start: 'top 85%',
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          delay: i * 0.15,
+        });
+      });
   });
 </script>
