@@ -100,40 +100,59 @@ const products = [
     </div>
   </div>
 </section>
-
 <script>
-  import Swiper from 'swiper';
-  import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+  let swiperInstance = null;
+  let isInitialized = false;
 
-  const swiper = new Swiper('.swiper', {
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: true,
-    },
-    modules: [Navigation, Pagination, Autoplay],
-    loop: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
+  async function lazyInitSwiper() {
+    if (isInitialized) return;
 
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 40,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 50,
-      },
-    },
+    const swiperEl = document.querySelector('.swiper');
+    if (!swiperEl) return;
+
+    try {
+      const { default: Swiper } = await import('swiper');
+      const { Autoplay, Navigation, Pagination } = await import(
+        'swiper/modules'
+      );
+
+      swiperInstance = new Swiper('.swiper', {
+        modules: [Navigation, Pagination, Autoplay],
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        observer: true, // This helps with dynamic content
+        observeParents: true, // This helps with dynamic content
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: { slidesPerView: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 40 },
+          1024: { slidesPerView: 3, spaceBetween: 50 },
+        },
+      });
+
+      isInitialized = true;
+    } catch (error) {
+      console.error('Failed to initialize Swiper:', error);
+    }
+  }
+
+  // Multiple initialization triggers
+  document.addEventListener('DOMContentLoaded', lazyInitSwiper);
+  document.addEventListener('astro:page-load', lazyInitSwiper);
+  window.addEventListener('load', lazyInitSwiper);
+
+  // Cleanup
+  document.addEventListener('astro:before-preparation', () => {
+    if (swiperInstance) {
+      swiperInstance.destroy(true, true);
+      swiperInstance = null;
+      isInitialized = false;
+    }
   });
 </script>
