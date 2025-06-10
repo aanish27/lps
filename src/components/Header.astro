@@ -27,14 +27,14 @@ const allPages = [
 ];
 ---
 
-<header 
-  class='fixed top-0 w-full dark:bg-secondary-950/90 backdrop-blur-none z-50 py-4 transition-colors duration-300'
+<header
+  class='fixed top-0 w-full dark:bg-secondary-950/90 z-50 py-2 transition-colors duration-300'
 >
   <div class='container-custom flex items-center justify-between'>
     <a href='/' class='flex items-center' aria-label='Go to homepage'>
-      <img src={logo.src} alt='Logo' width='60px' height='60px' />
+      <img src={logo.src} alt='Logo' class='h-12 w-12' />
       <span
-        class='ml-2 font-display font-bold text-white dark:text-white text-4xl f '
+        class='ml-2 font-display font-bold text-white dark:text-white text-xl md:text-3xl lg:text-4xl'
         >LANKA POLYSACKS</span
       >
     </a>
@@ -149,3 +149,32 @@ const allPages = [
     display: none !important;
   }
 </style>
+<script>
+  // Wait for DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header');
+    const introSection = document.querySelector('.hero-section'); // or whatever your intro class is
+
+    // Create observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries; // Get first (and only) entry
+
+        if (entry.isIntersecting) {
+          // Intro section is visible
+          header.classList.remove('bg-black/80', 'backdrop-blur-xs');
+        } else {
+          // Intro section is out of view
+          header.classList.add('bg-black/80', 'backdrop-blur-xs');
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of intro is still visible
+        rootMargin: '0px 0px -10px 0px', // Optional: adds a 10px buffer
+      }
+    );
+
+    // Start observing
+    observer.observe(introSection);
+  });
+</script>
