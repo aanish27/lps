@@ -54,14 +54,14 @@ const products = [
 ];
 ---
 
-<div class='swiper'>
+<div class='swiper'> 
   <!-- Additional required wrapper -->
   <div class='swiper-wrapper mb-20'>
     <!-- Slides -->
     {
       products.map((feature, index) => (
         <div class='swiper-slide'>
-          <div class='card border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center'>
+          <div class='card border border--200 dark:border-gray-700 flex flex-col items-center text-center'>
             <img
               src={feature.pic.src}
               alt='Google Workspace'
@@ -88,11 +88,14 @@ const products = [
   <div class='swiper-pagination'></div>
 
   <!-- If we need navigation buttons -->
-  <!-- <div class='swiper-button-prev '></div>
-    <div class='swiper-button-next'></div> -->
+  <!-- <div class="swiper-button-prev absolute top-1/2 left-5 transform -translate-y-1/2 -translate-x-1/2 z-10"></div>
+  <div class="swiper-button-next absolute top-1/2 right-5 transform -translate-y-1/2 translate-x-1/2 z-10"></div> -->
+
 
   <!-- If we need scrollbar -->
+
   <!-- <div class='swiper-scrollbar'></div> -->
+
 </div>
 <script>
   import Swiper from 'swiper';

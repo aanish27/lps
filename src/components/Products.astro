@@ -6,7 +6,11 @@ import ProductsSlider from '../components/ProductsSlider.astro';
   id='products'
   class='py-16 bg-gradient-to-r from-red-200 to-blue-200 dark:bg-gray-800'
 >
-  <div class='container-custom'>
+  <div class='container-custom relative'>
+    <!-- Navigation buttons outside the swiper -->
+<div class="swiper-button-prev absolute top-[50px] left-0 transform -translate-x-1/2 z-10 cursor-pointer "></div>
+<div class="swiper-button-next absolute top-[50px] right-0 transform translate-x-1/2 z-10 cursor-pointer"></div>
+
     <div class='text-center mb-16'>
       <h2 class='text-3xl font-bold text-gray-900 dark:text-white mb-4'>
         Our Products
@@ -16,6 +20,7 @@ import ProductsSlider from '../components/ProductsSlider.astro';
         create seamless workflows and maximize productivity.
       </p>
     </div>
+
     <!-- Slider main container -->
     <ProductsSlider />
   </div>
