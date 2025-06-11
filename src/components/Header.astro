@@ -153,6 +153,8 @@ const allPages = [
   document.addEventListener('astro:page-load', () => {
     const header = document.querySelector('header');
     const introSection = document.querySelector('.hero-section'); // or whatever your intro class is
+    const headerSection = document.querySelector('.title-section');
+    const section = introSection ? introSection : headerSection;
 
     // Create observer
     const observer = new IntersectionObserver(
@@ -174,6 +176,6 @@ const allPages = [
     );
 
     // Start observing
-    observer.observe(introSection);
+    observer.observe(section);
   });
 </script>
