@@ -150,8 +150,7 @@ const allPages = [
   }
 </style>
 <script>
-  // Wait for DOM to load
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     const header = document.querySelector('header');
     const introSection = document.querySelector('.hero-section'); // or whatever your intro class is
 
