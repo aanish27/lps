@@ -87,11 +87,10 @@ const post = posts[slug];
 if (!post) return Astro.redirect('/404');
 ---
 
-<Layout title={`${post.title} - SaaSify Blog`} description={post.title}>
+<Layout title={`Lanka Polysacks - ${post.title}`} description={post.title}>
   <main>
     <HeroSection
-      title='Product - '
-      highlightText={post.title}
+      title={post.title}
       description={post.description}
     />
 
