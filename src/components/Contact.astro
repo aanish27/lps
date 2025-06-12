@@ -17,15 +17,15 @@ import HeroSection from '../components/HeroSection.astro';
       is here to assist you every step of the way.
     </p> -->
     <div class='grid md:grid-cols-2 gap-12'>
-      <div class='slide-up col-span-2'>
+      <div class='slide-up md:col-span-2'>
         <!-- <span
           class='inline-block px-4 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900 text-secondary-600 dark:text-secondary-300 font-medium text-sm mb-4'
         >
           Get In Touch
         </span> -->
 
-        <div class='space-y-6 grid grid-cols-3'>
-          <div class='flex items-start'>
+        <div class='space-y-6 grid md:grid-cols-3'>
+          <!-- <div class='flex items-start'>
             <div class='shrink-0 mt-1'>
               <svg
                 class='w-6 h-6 text-secondary-500'
@@ -48,36 +48,9 @@ import HeroSection from '../components/HeroSection.astro';
               </h3>
               <p class='text-gray-600 dark:text-gray-300'>+662 441 7222</p>
             </div>
-          </div>
+          </div> -->
 
-          <div class='flex items-start'>
-            <div class='shrink-0 mt-1'>
-              <svg
-                class='w-6 h-6 text-secondary-500'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-                ></path>
-              </svg>
-            </div>
-            <div class='ml-4'>
-              <h3 class='text-lg font-semibold text-gray-900 dark:text-white'>
-                Email Us
-              </h3>
-              <p class='text-gray-600 dark:text-gray-300'>
-                lankapolys@gmail.com
-              </p>
-            </div>
-          </div>
-
-          <div class='flex items-start'>
+          <!-- <div class='flex items-start'>
             <div class='shrink-0 mt-1'>
               <svg
                 class='w-6 h-6 text-secondary-500'
@@ -107,9 +80,11 @@ import HeroSection from '../components/HeroSection.astro';
                 Kandy Road, Dambulu Oya, Dambulla, Sri Lanka
               </p>
             </div>
-          </div>
+          </div> -->
 
-          <div class='flex items-start'>
+          <div
+            class='flex flex-col justify-center items-center md:flex-row md:items-start'
+          >
             <div class='shrink-0 mt-1'>
               <svg
                 class='w-8 h-8 text-secondary-500'
@@ -128,17 +103,109 @@ import HeroSection from '../components/HeroSection.astro';
               </svg>
             </div>
             <div class='ml-4'>
-              <h3 class='text-lg font-semibold text-gray-900 dark:text-white'>
+              <h3
+                class='text-lg font-semibold text-gray-900 dark:text-white text-center md:text-left text-center md:text-left'
+              >
                 Hotline
               </h3>
               <p class='text-gray-600 dark:text-gray-300'>066 2284626</p>
               <p class='text-gray-600 dark:text-gray-300'>066 2284532</p>
               <p class='text-gray-600 dark:text-gray-300'>066 2284372</p>
-              <p class='text-gray-600 dark:text-gray-300'>066 228372</p>
+              <p class='text-gray-600 dark:text-gray-300'>066 2284371</p>
+              <p class='text-gray-600 dark:text-gray-300'>066 2285337</p>
             </div>
           </div>
 
-          <div class='flex items-start'>
+          <div
+            class='flex flex-col justify-center items-center md:flex-row md:items-start'
+          >
+            <div class='shrink-0 mt-1'>
+              <svg
+                class='w-6 h-6 text-secondary-500'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                ></path>
+              </svg>
+            </div>
+            <div class='ml-4'>
+              <h3
+                class='text-lg font-semibold text-gray-900 dark:text-white text-center md:text-left'
+              >
+                Email Us
+              </h3>
+              <p class='text-gray-600 dark:text-gray-300'>
+                lankapolys@gmail.com
+              </p>
+            </div>
+          </div>
+          <div
+            class='flex flex-col justify-center items-center md:flex-row md:items-start'
+          >
+            <div class='shrink-0 mt-1'>
+              <svg
+                class='w-8 h-8 text-secondary-500'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M18 18V6h-5v12h5Zm0 0h2M4 18h2.5m3.5-5.5V12M6 6l7-2v16l-7-2V6Z'
+                ></path>
+              </svg>
+            </div>
+            <div class='ml-4'>
+              <h3
+                class='text-lg font-semibold text-gray-900 dark:text-white text-center md:text-left'
+              >
+                Operating Hours
+              </h3>
+              <div
+                class='mt-2 grid grid-cols-1 gap-5 text-gray-600 dark:text-gray-300 text-center md:hidden'
+              >
+                <div class='font-semibold'>Monday to Friday</div>
+                <div>8:30 AM – 6:00 PM</div>
+                <div class='font-semibold'>Saturday</div>
+                <div>8:30 AM – 5:00 PM</div>
+                <div class='font-semibold'>
+                  We remain closed on Sundays, Poya Days, and Mercantile
+                  Holidays.
+                </div>
+              </div>
+
+              <div class='hidden md:block'>
+                <p
+                  class='text-gray-600 dark:text-gray-300 text-center md:text-left'
+                >
+                  Monday to Friday: 8:30 AM – 6:00 PM
+                </p>
+                <p
+                  class='text-gray-600 dark:text-gray-300 text-center md:text-left'
+                >
+                  Saturday: 8:30 AM – 5:00 PM
+                </p>
+                <p
+                  class='text-gray-600 dark:text-gray-300 font-semibold text-center md:text-left'
+                >
+                  We remain closed on Sundays, Poya Days, and Mercantile
+                  Holidays.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class='flex items-start'>
             <div class='shrink-0 mt-1'>
               <svg
                 class='w-6 h-6 text-secondary-500'
@@ -162,44 +229,11 @@ import HeroSection from '../components/HeroSection.astro';
               <p class='text-gray-600 dark:text-gray-300'>+662 441 7233</p>
               <p class='text-gray-600 dark:text-gray-300'>+662 441 7244</p>
             </div>
-          </div>
-
-          <div class='flex items-start'>
-            <div class='shrink-0 mt-1'>
-              <svg
-                class='w-8 h-8 text-secondary-500'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-              >
-                <path
-                  stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M18 18V6h-5v12h5Zm0 0h2M4 18h2.5m3.5-5.5V12M6 6l7-2v16l-7-2V6Z'
-                ></path>
-              </svg>
-            </div>
-            <div class='ml-4'>
-              <h3 class='text-lg font-semibold text-gray-900 dark:text-white'>
-                Operating Hours
-              </h3>
-              <p class='text-gray-600 dark:text-gray-300'>
-                <span class=''>Monday to Friday</span>: 8:30 AM – 6:00 PM
-              </p>
-              <p class='text-gray-600 dark:text-gray-300'>
-                <span class=''>Saturday</span>: 8:30 AM – 5:00 PM
-              </p>
-              <p class='text-gray-600 dark:text-gray-300 font-semibold'>
-                We remain closed on Sundays, Poya Days, and Mercantile Holidays.
-              </p>
-            </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
+      <!-- Iframe -->
       <div class='slide-up' style='animation-delay: 150ms'>
         <div class='p-0 dark:border-gray-700'>
           <!-- <div
@@ -208,11 +242,30 @@ import HeroSection from '../components/HeroSection.astro';
           >
             Visit Us At Our Dambulla Factory
           </div> -->
-          <span
-            class='inline-block px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-900 text-black- dark:text-secondary-300 font-semibold text-sm mb-4'
+          <div
+            class='flex items-center justify-center md:flex-row flex-col text-center gap-2 py-2 rounded-full bg-secondary-100 dark:bg-secondary-900 text-black- dark:text-secondary-300 font-semibold text-sm mb-4'
           >
-            Visit Our Dambulla Factory
-          </span>
+            <svg
+              class='w-6 h-6 text-secondary-500'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'
+              ></path>
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'></path>
+            </svg>
+            Visit Our Dambulla Factory - Kandy Road, Dambulu Oya, Dambulla, Sri Lanka
+          </div>
           <iframe
             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7234074864455!2d80.658152!3d7.819073699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcafb6f3d6e67f%3A0xfd36874c8ec82f7e!2sLanka%20Polysacks%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1749321498367!5m2!1sen!2slk'
             width='100%'
@@ -223,7 +276,7 @@ import HeroSection from '../components/HeroSection.astro';
             referrerpolicy='no-referrer-when-downgrade'></iframe>
         </div>
       </div>
-
+      <!-- Contact Form -->
       <div class='slide-up' style='animation-delay: 150ms'>
         <div class='card p-6 border border-gray-200 dark:border-gray-700'>
           <h3 class='text-xl font-semibold mb-6 text-gray-900 dark:text-white'>
