@@ -88,11 +88,8 @@ if (!post) return Astro.redirect('/404');
 ---
 
 <Layout title={`Lanka Polysacks - ${post.title}`} description={post.title}>
-  <main>
-    <HeroSection
-      title={post.title}
-      description={post.description}
-    />
+  <main id='product'>
+    <HeroSection title={post.title} description={post.description} />
 
     <section class='py-16 bg-white dark:bg-gray-800'>
       <div class='container-custom'>

@@ -45,9 +45,10 @@ const allPages = [
           return (
             <a
               href={link.url}
-              class='text-white hover:text-red-700 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors'
+              class='nav-link relative text-white dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors'
             >
               {link.text}
+              <span class='absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 dark:bg-primary-400 transition-all duration-500 ease-out' />
             </a>
           );
         })
@@ -148,34 +149,64 @@ const allPages = [
   [x-cloak] {
     display: none !important;
   }
+
+  /* Active navigation styles - line expands from left to right */
+  .nav-link.active span,
+  .nav-link:hover span {
+    width: 100%;
+  }
 </style>
 <script>
   document.addEventListener('astro:page-load', () => {
     const header = document.querySelector('header');
-    const introSection = document.querySelector('.hero-section'); // or whatever your intro class is
+    const introSection = document.querySelector('.hero-section');
     const headerSection = document.querySelector('.title-section');
     const section = introSection ? introSection : headerSection;
 
-    // Create observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries; // Get first (and only) entry
+    if (section) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          if (entry.isIntersecting) {
+            header.classList.remove('bg-black/80', 'backdrop-blur-xs');
+          } else {
+            header.classList.add('bg-black/80', 'backdrop-blur-xs');
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -10px 0px' }
+      );
+      observer.observe(section);
+    }
 
-        if (entry.isIntersecting) {
-          // Intro section is visible
-          header.classList.remove('bg-black/80', 'backdrop-blur-xs');
-        } else {
-          // Intro section is out of view
-          header.classList.add('bg-black/80', 'backdrop-blur-xs');
-        }
-      },
-      {
-        threshold: 0.1, // Trigger when 10% of intro is still visible
-        rootMargin: '0px 0px -10px 0px', // Optional: adds a 10px buffer
+    function updateActiveNav() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const scrollPos = window.scrollY + 100;
+
+      navLinks.forEach((link) => link.classList.remove('active'));
+
+      const sections = ['about-us', 'products', 'contact'];
+      let activeLink = navLinks[0]; // Default to Home
+
+      if (document.getElementById('product')) {
+        navLinks[2].classList.add('active');
+        return;
       }
-    );
 
-    // Start observing
-    observer.observe(section);
+      sections.forEach((sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (
+          section &&
+          scrollPos >= section.offsetTop &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          const link = document.querySelector(`a[href="/#${sectionId}"]`);
+          if (link) activeLink = link;
+        }
+      });
+      activeLink.classList.add('active');
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
   });
 </script>
