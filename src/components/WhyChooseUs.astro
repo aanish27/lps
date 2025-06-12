@@ -25,12 +25,12 @@ const reasons = [
       'Access your workspace from anywhere with fully responsive design optimized for all devices.',
     pic: skilled,
   },
-  {
-    title: 'fertilizer',
-    description:
-      'Access your workspace from anywhere with fully responsive design optimized for all devices.',
-    pic: iso,
-  },
+  // {
+  //   title: 'fertilizer',
+  //   description:
+  //     'Access your workspace from anywhere with fully responsive design optimized for all devices.',
+  //   pic: iso,
+  // },
   {
     title: 'fertilizer',
     description:
@@ -47,30 +47,29 @@ const reasons = [
 ];
 ---
 
-<section id='choose-us' class='section bg-blue-50'>
+<section id='choose-us' class='section bg-white border-t-blue-950'>
   <div class='container-custom'>
     <div class='text-center max-w-3xl mx-auto mb-16'>
       <h2 class='mb-5 text-gray-900 dark:text-white'>Why Choose Us</h2>
     </div>
 
-    <div class='grid md:grid-cols-3 lg:grid-cols-6 gap-10'>
+    <div class='grid md:grid-cols-3 lg:grid-cols-5 gap-10'>
       {
         reasons.map((reason, index) => (
           <div class='feature-card group perspective h-60'>
             <div class='relative h-full  transform-gpu transition-all duration-700 preserve-3d hover:rotate-y-180 cursor-pointer touch-action-card'>
               <div class='absolute inset-0 backface-hidden'>
                 <div class='h-full flex flex-col items-center justify-center text-center'>
-                  <img class='w-50 md:w-60' src={reason.pic.src} alt='' />
+                  <img class='w-50 md:w-60 border-2 border-blue-950' src={reason.pic.src} alt='' />
                   {/* <h3 class=' capitalize text-xl font-semibold mb-3 text-gray-900 dark:text-white'>
                     {reason.title}
                   </h3> */}
                 </div>
               </div>
               <div class='absolute inset-0 backface-hidden rotate-y-180'>
-                <div class='card p-6 md:p-8 h-full bg-white dark:bg-primary-800 text-white flex flex-col items-center justify-center text-center'>
+                <div class='card p-6 md:p-8 h-full dark:bg-primary-800 text-white flex flex-col items-center justify-center text-center'>
                   <p class='mb-4 text-sm font-semibold text-black'>
-                    Our 3D transformations use CSS perspective and transform
-                    properties to create immersive experiences.
+                    Your products details and decriptions are mentioned here. We can customize the details as per your request.
                   </p>
                 </div>
               </div>
