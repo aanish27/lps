@@ -225,7 +225,7 @@ html {
   color: black !important; /* rose-500 or any color code */
 }
 
-@media (min-width: 320px) {
+@media (max-width: 320px) {
   /* Styles for screen widths 320px and above */
   .swiper-button-next,
   .swiper-button-prev {
