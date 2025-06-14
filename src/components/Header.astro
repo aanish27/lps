@@ -28,13 +28,13 @@ const allPages = [
 ---
 
 <header
-  class='fixed top-0 w-full dark:bg-secondary-950/90 z-50 py-2 transition-colors duration-300'
+  class='fixed  top-0 w-full dark:bg-secondary-950/90 p-1  z-50 py-2 transition-colors duration-300'
 >
   <div class='container-custom flex items-center justify-between'>
     <a href='/' class='flex items-center' aria-label='Go to homepage'>
       <img src={logo.src} alt='Logo' class='h-12 w-12' />
       <span
-        class='ml-2 font-display font-bold text-blue-700 dark:text-white text-xl md:text-2xl'
+        class='ml-2 font-display font-extrabold text-blue-700 dark:text-white text-xl  md:text-2xl'
         >LANKA POLYSACKS</span
       >
     </a>
@@ -45,7 +45,7 @@ const allPages = [
           return (
             <a
               href={link.url}
-              class='nav-link relative text-white dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors'
+              class='nav-link relative text-blue-300 dark:text-secondary-300 dark:hover:text-primary-400 font-extrabold transition-colors'
             >
               {link.text}
               <span class='absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 dark:bg-primary-400 transition-all duration-500 ease-out' />
