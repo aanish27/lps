@@ -108,21 +108,32 @@ const products = [
 
 <script>
   import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+  import { addPrevNextBtnsClickHandlers } from '../scripts/EmblaCarouselArrowButtons';
+  import { addDotBtnsAndClickHandlers } from '../scripts/EmblaCarouselDotButton';
+  import '../styles/embla.css';
+  const OPTIONS = { loop: true };
 
-  document.addEventListener('astro:page-load', () => {
-    const OPTIONS = { align: 'start' };
+  const emblaNode = document.querySelector('.embla');
+  const viewportNode = emblaNode?.querySelector('.embla__viewport');
+  const prevBtnNode = emblaNode?.querySelector('.embla__button--prev');
+  const nextBtnNode = emblaNode?.querySelector('.embla__button--next');
+  const dotsNode = emblaNode?.querySelector('.embla__dots');
 
-    const emblaNode = document.querySelector('.embla');
-    const viewportNode = emblaNode?.querySelector('.embla__viewport');
-    const embla = EmblaCarousel(viewportNode, OPTIONS);
+  const emblaApi = EmblaCarousel(viewportNode, OPTIONS, [
+    Autoplay({ delay: 4000 }),
+  ]);
 
-    const prevBtnNode = document.querySelector('.embla__button--prev');
-    const nextBtnNode = document.querySelector('.embla__button--next');
-    const dotsNode = document.querySelector('.embla__dots');
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    prevBtnNode,
+    nextBtnNode
+  );
+  const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
+    emblaApi,
+    dotsNode
+  );
 
-    // const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
-
-    prevBtnNode?.addEventListener('click', () => embla.scrollPrev(), false);
-    nextBtnNode?.addEventListener('click', () => embla.scrollNext(), false);
-  });
+  emblaApi.on('destroy', removePrevNextBtnsClickHandlers);
+  emblaApi.on('destroy', removeDotBtnsAndClickHandlers);
 </script>
