@@ -83,7 +83,7 @@ import HeroSection from '../components/HeroSection.astro';
           </div> -->
 
           <div
-            class='flex flex-col justify-baseline items-center border-2 border-red-600 md:flex-row md:items-start'
+            class='flex flex-col justify-baseline items-center  md:flex-row md:items-start'
           >
             <div class='shrink-0 mt-1'>
               <svg
@@ -104,15 +104,17 @@ import HeroSection from '../components/HeroSection.astro';
             </div>
             <div class='ml-4'>
               <h3
-                class='text-lg font-semibold text-gray-900 dark:text-white text-center md:text-left text-center md:text-left'
+                class='text-lg font-semibold text-gray-900 dark:text-white text-center md:text-left'
               >
                 Hotline
               </h3>
-              <p class='text-gray-600 dark:text-gray-300'>066 2284626</p>
-              <p class='text-gray-600 dark:text-gray-300'>066 2284532</p>
-              <p class='text-gray-600 dark:text-gray-300'>066 2284372</p>
-              <p class='text-gray-600 dark:text-gray-300'>066 2284371</p>
-              <p class='text-gray-600 dark:text-gray-300'>066 2285337</p>
+              <div class="grid md:grid-cols-2 gap-5">
+                <div class='text-gray-600 dark:text-gray-300'>066 2284626</div>
+                <div class='text-gray-600 dark:text-gray-300'>066 2284532</div>
+                <div class='text-gray-600 dark:text-gray-300'>066 2284372</div>
+                <div class='text-gray-600 dark:text-gray-300'>066 2284371</div>
+                <div class='text-gray-600 dark:text-gray-300'>066 2285337</div>
+              </div>
             </div>
           </div>
 
@@ -266,14 +268,16 @@ import HeroSection from '../components/HeroSection.astro';
             </svg>
             Visit Our Dambulla Factory - Kandy Road, Dambulu Oya, Dambulla, Sri Lanka
           </div>
-          <!-- <iframe
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7234074864455!2d80.658152!3d7.819073699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcafb6f3d6e67f%3A0xfd36874c8ec82f7e!2sLanka%20Polysacks%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1749321498367!5m2!1sen!2slk'
-            width='100%'
-            height='450'
-            style='border:0;'
-            allowfullscreen=''
-            loading='lazy'
-            referrerpolicy='no-referrer-when-downgrade'></iframe> -->
+          <div>
+            <iframe
+              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7234074864455!2d80.658152!3d7.819073699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcafb6f3d6e67f%3A0xfd36874c8ec82f7e!2sLanka%20Polysacks%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1750119060343!5m2!1sen!2slk'
+              width='600'
+              height='450'
+              style='border:0;'
+              allowfullscreen=''
+              loading='lazy'
+              referrerpolicy='no-referrer-when-downgrade'></iframe>
+          </div>
         </div>
       </div>
       <!-- Contact Form -->
