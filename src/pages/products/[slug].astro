@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import pic2 from '../../assets/chips-bag.jpg';
+import pic1 from '../../assets/products/lenobags.jpeg'
 import pic5 from '../../assets/still-life-hanging-bag.jpg';
 
 export function getStaticPaths() {
@@ -83,7 +84,7 @@ const posts = {
   },
 };
 
-const post = posts[slug];
+const post = posts[slug as keyof typeof posts];  // const post = posts[slug]; ishad 
 if (!post) return Astro.redirect('/404');
 ---
 
@@ -163,8 +164,9 @@ if (!post) return Astro.redirect('/404');
               <!-- <a href='#' class='btn-primary'>Read Full Case Study</a> -->
             </div>
             <div class='rounded-lg overflow-hidden shadow-xl'>
-              <img
-                src={post.img1.src}
+              
+                <img src={typeof post.img1 === 'string' ? post.img1 : post.img1.src} alt={post.title}   
+                
                 alt='ShopWave Dashboard'
                 class='w-full h-auto'
               />
@@ -178,11 +180,12 @@ if (!post) return Astro.redirect('/404');
             <div
               class='order-2 md:order-1 rounded-lg overflow-hidden shadow-xl'
             >
-              <img
-                src={post.img2.src}
-                alt='TechNova Team'
-                class='w-full h-auto'
-              />
+            <img
+              src={typeof post.img2 === 'string' ? post.img2 : post.img2.src}
+              alt='TechNova Team'
+              class='w-full h-auto'
+            />
+
             </div>
             <div class='order-1 md:order-2'>
               <!-- <span

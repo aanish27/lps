@@ -145,7 +145,7 @@
         rgba(242, 203, 203, 1) 100%
       )
       padding-box,
-    white border-box;
+    rgba(242, 203, 203, 1) border-box;
   border: 4px solid transparent;
   /* border-radius: 8px; */
   width: 3.6rem;
@@ -191,7 +191,7 @@
   border-radius: 50%;
 }
 .embla__dot:after {
-  box-shadow: inset 0 0 0 0.2rem rgb(255, 255, 255);
+  box-shadow: inset 0 0 0 0.2rem rgb(13, 95, 220);
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 50%;
@@ -204,8 +204,8 @@
   background: #82b4ff;
   background: radial-gradient(
     circle,
-    rgba(130, 180, 255, 1) 0%,
-    rgba(242, 203, 203, 1) 50%
+    rgb(13, 95, 220) 0%,
+    rgb(13, 95, 220) 50%
   );
 }
 
