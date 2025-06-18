@@ -28,13 +28,13 @@ const allPages = [
 ---
 
 <header
-  class='fixed  top-0 w-full dark:bg-secondary-950/90 p-1  z-50 py-2 transition-colors duration-300'
+  class='fixed top-0 w-full dark:bg-secondary-950/90 p-1 z-50 py-2 transition-colors duration-300'
 >
   <div class='container-custom flex items-center justify-between'>
     <a href='/' class='flex items-center' aria-label='Go to homepage'>
       <img src={logo.src} alt='Logo' class='h-12 w-12' />
       <span
-        class='ml-2 font-display font-extrabold  text-white text-xl  md:text-2xl'
+        class='ml-2 font-display font-extrabold text-white text-xl md:text-2xl'
         >LANKA POLYSACKS</span
       >
     </a>
@@ -159,24 +159,34 @@ const allPages = [
 <script>
   document.addEventListener('astro:page-load', () => {
     const header = document.querySelector('header');
-    const introSection = document.querySelector('.hero-section');
-    const headerSection = document.querySelector('.title-section');
-    const section = introSection ? introSection : headerSection;
+    // const introSection = document.querySelector('.hero-section');
+    // const headerSection = document.querySelector('.title-section');
+    // const section = introSection ? introSection : headerSection;
 
-    if (section) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const [entry] = entries;
-          if (entry.isIntersecting) {
-            header.classList.remove('bg-black/80', 'backdrop-blur-xs');
-          } else {
-            header.classList.add('bg-black/80', 'backdrop-blur-xs');
-          }
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -10px 0px' }
-      );
-      observer.observe(section);
-    }
+    // const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0) {
+        header?.classList.add('bg-black/80', 'backdrop-blur-xs');
+      } else {
+        header?.classList.remove('bg-black/80', 'backdrop-blur-xs');
+      }
+    });
+
+    // if (section) {
+    //   const observer = new IntersectionObserver(
+    //     (entries) => {
+    //       const [entry] = entries;
+    //       if (entry.isIntersecting) {
+    //         header.classList.remove('bg-black/80', 'backdrop-blur-xs');
+    //       } else {
+    //         header.classList.add('bg-black/80', 'backdrop-blur-xs');
+    //       }
+    //     },
+    //     { threshold: 0.1, rootMargin: '0px 0px -10px 0px' }
+    //   );
+    //   observer.observe(section);
+    // }
 
     function updateActiveNav() {
       const navLinks = document.querySelectorAll('.nav-link');
