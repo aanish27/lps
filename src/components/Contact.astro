@@ -1,5 +1,6 @@
 ---
 import HeroSection from '../components/HeroSection.astro';
+
 ---
 
 <section id='contact' class='section bg-blue-50 dark:bg-gray-800/50 py-0'>
@@ -287,9 +288,7 @@ import HeroSection from '../components/HeroSection.astro';
             Send Us a Message
           </h3>
 
-          <form
-            x-data="{ name: '', email: '', message: '', submitted: false, errors: {} }"
-          >
+          <form x-data="{ name: '', email: '', message: '', submitted: false, errors: {} }"/>
             <div class='mb-4'>
               <label
                 for='name'
