@@ -209,8 +209,8 @@
   );
 }
 
-@media (max-width: 320px) {
-  /* Styles for screen widths 320px and above */
+@media (max-width: 420px) {
+  /* Styles for screen widths 420px and below */
   .embla__controls {
     display: none;
   }
